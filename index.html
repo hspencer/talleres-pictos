@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres PICTOS.net</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+  <!-- Tipografia Lexend (marca PICTOS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /*
+     * PICTOS.net — Tema visual para Reveal.js
+     * Estilo: tipografia gigante, colores planos, frases cortas
+     * Paleta oficial: purpura #40069e, azul #3b82f6, verde #10b981,
+     *                 naranja #f97316, rosa #ec4899
+     */
+
+    :root {
+      --p-purple:  #40069e;
+      --p-blue:    #3b82f6;
+      --p-green:   #10b981;
+      --p-orange:  #f97316;
+      --p-pink:    #ec4899;
+      --p-dark:    #1a1033;
+      --p-white:   #ffffff;
+      --p-light:   #f4f0fb;
+    }
+
+    /* ---- Reset & base ---- */
+    .reveal,
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4,
+    .reveal p, .reveal li, .reveal a {
+      font-family: 'Lexend', system-ui, sans-serif;
+      text-transform: none;
+      text-shadow: none;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal { color: var(--p-dark); }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 60px 80px;
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ---- Tipografia gigante ---- */
+    .reveal h1 {
+      font-weight: 900;
+      font-size: 4.5em;
+      line-height: 0.95;
+      margin: 0 0 0.15em;
+    }
+
+    .reveal h2 {
+      font-weight: 900;
+      font-size: 3.6em;
+      line-height: 0.95;
+      margin: 0 0 0.2em;
+    }
+
+    .reveal h3 {
+      font-weight: 800;
+      font-size: 1.6em;
+      line-height: 1.1;
+      margin: 0 0 0.15em;
+    }
+
+    .reveal p {
+      font-weight: 400;
+      font-size: 1.3em;
+      line-height: 1.35;
+      margin: 0 0 0.4em;
+    }
+
+    .reveal .lead {
+      font-weight: 300;
+      font-size: 1.6em;
+      line-height: 1.25;
+      max-width: 80%;
+    }
+
+    .reveal .small {
+      font-size: 0.75em;
+      opacity: 0.5;
+      font-weight: 300;
+    }
+
+    /* ---- Fondos planos ---- */
+    section.purple { background: var(--p-purple); color: var(--p-white); }
+    section.blue   { background: var(--p-blue);   color: var(--p-white); }
+    section.green  { background: var(--p-green);  color: var(--p-white); }
+    section.orange { background: var(--p-orange); color: var(--p-white); }
+    section.pink   { background: var(--p-pink);   color: var(--p-white); }
+    section.dark   { background: var(--p-dark);   color: var(--p-white); }
+    section.light  { background: var(--p-light);  color: var(--p-dark);  }
+    section.white  { background: var(--p-white);  color: var(--p-dark);  }
+
+    /* ---- Acento ---- */
+    .orange { color: var(--p-orange); }
+    .green  { color: var(--p-green); }
+    .blue   { color: var(--p-blue); }
+    .pink   { color: var(--p-pink); }
+    .purple { color: var(--p-purple); }
+    .light  { color: var(--p-light); }
+
+    /* ---- Logo inline ---- */
+    .pictos-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 0.3em;
+    }
+
+    .pictos-logo-big {
+      width: 200px;
+      height: auto;
+    }
+
+    /* ---- Grid ---- */
+    .row {
+      display: flex;
+      gap: 1.5em;
+      align-items: start;
+      margin-top: 0.8em;
+    }
+
+    .row > * { flex: 1; }
+
+    .col-label {
+      font-weight: 800;
+      font-size: 1.1em;
+      display: block;
+      margin-bottom: 0.2em;
+    }
+
+    .col-text {
+      font-weight: 400;
+      font-size: 0.9em;
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+
+    /* ---- Numero de fase ---- */
+    .phase-num {
+      font-weight: 900;
+      font-size: 3em;
+      line-height: 1;
+      opacity: 0.25;
+      margin-bottom: 0.05em;
+    }
+
+    /* ---- Boton CTA ---- */
+    .cta {
+      display: inline-block;
+      padding: 0.55em 2.2em;
+      border-radius: 100px;
+      font-weight: 800;
+      font-size: 1.4em;
+      text-decoration: none;
+      transition: transform 0.2s;
+      margin-top: 0.6em;
+    }
+    .cta:hover { transform: scale(1.04); }
+
+    .cta-orange { background: var(--p-orange); color: #fff; }
+    .cta-white  { background: #fff; color: var(--p-dark); }
+
+    /* ---- Pregunta grande ---- */
+    .big-q {
+      font-weight: 700;
+      font-size: 2em;
+      line-height: 1.15;
+      margin: 0 0 0.5em;
+    }
+
+    /* ---- Divider ---- */
+    .bar {
+      width: 80px;
+      height: 6px;
+      border-radius: 3px;
+      margin: 0.3em 0 0.6em;
+    }
+    .bar-orange { background: var(--p-orange); }
+    .bar-white  { background: #fff; }
+    .bar-purple { background: var(--p-purple); }
+    .bar-green  { background: var(--p-green); }
+
+    /* ---- Reveal UI ---- */
+    .reveal .progress { color: var(--p-orange); height: 4px; }
+    .reveal .controls button { color: var(--p-purple); }
+    .reveal .slide-number { font-family: 'Lexend'; font-size: 14px; color: inherit; opacity: 0.35; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .reveal h1 { font-size: 2.6em; }
+      .reveal h2 { font-size: 2.2em; }
+      .reveal .slides section { padding: 30px 40px; }
+      .row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ============================================================
+       SLIDE 1 — PORTADA
+       ============================================================ -->
+  <section class="dark" data-transition="zoom" style="text-align:center; justify-content:center; align-items:center;">
+    <!-- Logo PICTOS inline SVG -->
+    <svg class="pictos-logo-big" viewBox="0 0 45.9 45.9" xmlns="http://www.w3.org/2000/svg" aria-label="Logo PICTOS">
+      <path d="m 23.09,5.42 c -9.4,0 -17.1,6.3 -17.1,14.1 0,7.8 0,0 0,0 v 0 17.7 c 0,2.1 1.7,3.9 3.9,3.9 h 1.6 c 2.1,0 3.9,-1.7 3.9,-3.9 v -5.3 c 2.3,1 4.9,1.5 7.7,1.5 9.4,0 17.1,-6.3 17.1,-14.1 0,-7.8 -7.7,-13.9 -17.1,-13.9 z m 0.3,20.5 c -6.4,0 -9.2,-6.4 -9.2,-6.4 0,0 2.8,-6.4 9.2,-6.4 6.4,0 9.2,6.4 9.2,6.4 0,0 -2.8,6.4 -9.2,6.4 z" fill="#8b5cf6"/>
+      <path d="m 23.41,13.14 c -6.4,0 -9.2,6.4 -9.2,6.4 0,0 2.8,6.4 9.2,6.4 6.4,0 9.2,-6.4 9.2,-6.4 0,0 -2.8,-6.4 -9.2,-6.4 z" fill="rgba(255,255,255,0.25)"/>
+      <circle cx="23.39" cy="19.22" r="3.1" fill="#1a1033"/>
+    </svg>
+    <h1 style="margin-top:0.15em;">PICTOS<span class="orange">.net</span></h1>
+    <p class="lead" style="max-width:100%; text-align:center; opacity:0.7;">
+      Talleres de co-dise&ntilde;o
+    </p>
+    <p class="small" style="margin-top:1.5em;">Mayo&ndash;Junio 2026 &middot; Chile</p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 2 — QUE ES
+       ============================================================ -->
+  <section class="white" data-transition="slide">
+    <p style="font-weight:700; font-size:1em; color:var(--p-blue); margin-bottom:0.2em;">DISE&Ntilde;O PARTICIPATIVO</p>
+    <h2>Las personas<br>afectadas por la<br>tecnolog&iacute;a <span class="blue">deciden</span><br>c&oacute;mo funciona.</h2>
+    <div class="bar bar-orange"></div>
+    <p style="max-width:65%; opacity:0.6;">No solo validan al final. Participan desde el inicio.</p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 3 — NO ES NUEVO
+       ============================================================ -->
+  <section class="blue" data-transition="slide">
+    <h2>No es consulta.<br>Es <em>co-creaci&oacute;n</em>.</h2>
+    <div class="bar bar-white"></div>
+    <div class="row">
+      <div>
+        <span class="col-label">Casos reales</span>
+        <span class="col-text">Se trabaja con problemas concretos, no hip&oacute;tesis abstractas.</span>
+      </div>
+      <div>
+        <span class="col-label">Prototipado r&aacute;pido</span>
+        <span class="col-text">Ciclos cortos donde se discuten compromisos de dise&ntilde;o.</span>
+      </div>
+      <div>
+        <span class="col-label">Voz directa</span>
+        <span class="col-text">Cada participante influye en decisiones clave de la herramienta.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 4 — APLICADO A AAC + IA
+       ============================================================ -->
+  <section class="dark" data-transition="slide">
+    <p style="font-weight:700; font-size:1em; color:var(--p-green); margin-bottom:0.2em;">AAC + INTELIGENCIA ARTIFICIAL</p>
+    <h2>Dise&ntilde;ar <span class="green">con</span> y <span class="green">para</span><br>personas<br>neurodivergentes.</h2>
+    <div class="bar bar-green"></div>
+    <p style="opacity:0.6; max-width:60%;">La IA extiende capacidades.<br>No reemplaza a nadie.</p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 5 — POR QUE TU
+       ============================================================ -->
+  <section class="orange" data-transition="slide" style="text-align:center; align-items:center;">
+    <h2 style="text-align:center;">T&uacute; traduces<br>intenciones en<br>pictogramas.</h2>
+    <div class="bar bar-white" style="margin:0.3em auto 0.6em;"></div>
+    <p style="text-align:center; max-width:70%; margin:0 auto; font-size:1.4em; font-weight:300;">
+      Sin tu experiencia, la herramienta<br>ser&aacute; sofisticada pero in&uacute;til.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 6 — OBJETIVOS
+       ============================================================ -->
+  <section class="purple" data-transition="slide">
+    <!-- Logo PICTOS en esquina -->
+    <svg class="pictos-logo" viewBox="0 0 45.9 45.9" xmlns="http://www.w3.org/2000/svg" style="position:absolute; top:40px; right:60px; width:60px; opacity:0.2;">
+      <path d="m 23.09,5.42 c -9.4,0 -17.1,6.3 -17.1,14.1 0,7.8 0,0 0,0 v 0 17.7 c 0,2.1 1.7,3.9 3.9,3.9 h 1.6 c 2.1,0 3.9,-1.7 3.9,-3.9 v -5.3 c 2.3,1 4.9,1.5 7.7,1.5 9.4,0 17.1,-6.3 17.1,-14.1 0,-7.8 -7.7,-13.9 -17.1,-13.9 z m 0.3,20.5 c -6.4,0 -9.2,-6.4 -9.2,-6.4 0,0 2.8,-6.4 9.2,-6.4 6.4,0 9.2,6.4 9.2,6.4 0,0 -2.8,6.4 -9.2,6.4 z" fill="#fff"/>
+      <circle cx="23.39" cy="19.22" r="3.1" fill="rgba(0,0,0,0.3)"/>
+    </svg>
+    <p style="font-weight:700; font-size:0.9em; opacity:0.6; letter-spacing:0.1em;">OBJETIVOS</p>
+    <h2 style="font-size:3em;">Qu&eacute; queremos<br>lograr juntos</h2>
+    <div class="bar bar-white"></div>
+    <div class="row" style="margin-top:0.5em;">
+      <div>
+        <span class="col-label" style="color:var(--p-orange);">Comprender</span>
+        <span class="col-text">C&oacute;mo imaginas y estructuras los conceptos antes de dibujarlos.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-green);">Explorar</span>
+        <span class="col-text">Qu&eacute; esperas de la IA y qu&eacute; no quieres delegar nunca.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-orange);">Co-dise&ntilde;ar</span>
+        <span class="col-text">Par&aacute;metros, vistas y controles para sentirte extendido/a.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-green);">Cartografiar</span>
+        <span class="col-text">Intenci&oacute;n &rarr; estructura visual &rarr; pictograma final.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 7 — FASES: APERTURA
+       ============================================================ -->
+  <section class="light" data-transition="slide">
+    <div class="phase-num" style="color:var(--p-blue);">01</div>
+    <h2 style="color:var(--p-blue);">Apertura</h2>
+    <div class="bar" style="background:var(--p-blue);"></div>
+    <p class="lead" style="color:var(--p-dark);">
+      Alineamos expectativas.<br>
+      Construimos confianza.<br>
+      La IA como co-autora, no sustituto.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 8 — FASES: INTENCION
+       ============================================================ -->
+  <section class="green" data-transition="slide">
+    <div class="phase-num">02</div>
+    <h2>Intento<br>comunicativo</h2>
+    <div class="bar bar-white"></div>
+    <p class="lead">
+      &iquest;Qu&eacute; quieres comunicar?<br>
+      &iquest;A qui&eacute;n? &iquest;En qu&eacute; contexto?<br>
+      Desempaquetamos casos reales.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 9 — FASES: ESTRUCTURA
+       ============================================================ -->
+  <section class="orange" data-transition="slide">
+    <div class="phase-num">03</div>
+    <h2>Estructura<br>visual</h2>
+    <div class="bar bar-white"></div>
+    <p class="lead">
+      Actores, acciones, objetos, contexto.<br>
+      Tu gram&aacute;tica visual hecha expl&iacute;cita.<br>
+      Definimos controles para la IA.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 10 — FASES: PRODUCCION
+       ============================================================ -->
+  <section class="purple" data-transition="slide">
+    <div class="phase-num">04</div>
+    <h2>Producci&oacute;n<br>y cierre</h2>
+    <div class="bar bar-white"></div>
+    <p class="lead">
+      Prototipamos el di&aacute;logo persona&ndash;IA.<br>
+      Refinamos. Evaluamos.<br>
+      Cartas al futuro PICTOS.net.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 11 — PREGUNTAS
+       ============================================================ -->
+  <section class="dark" data-transition="slide">
+    <p style="font-weight:700; font-size:0.9em; color:var(--p-pink); letter-spacing:0.1em;">PREGUNTAS CLAVE</p>
+    <h2 style="font-size:2.8em;">Lo que necesitamos<br>responder <span class="pink">juntos</span></h2>
+    <div class="bar" style="background:var(--p-pink);"></div>
+    <div class="row" style="margin-top:0.4em;">
+      <div>
+        <span class="col-label" style="color:var(--p-orange);">&iquest;C&oacute;mo piensas un pictograma?</span>
+        <span class="col-text">Antes de cualquier soluci&oacute;n visual.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-green);">&iquest;Qu&eacute; controlas t&uacute;?</span>
+        <span class="col-text">Par&aacute;metros que quieres manejar expl&iacute;citamente.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-pink);">&iquest;D&oacute;nde est&aacute; el l&iacute;mite?</span>
+        <span class="col-text">Lo que la herramienta no deber&iacute;a hacer nunca.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 12 — MAS PREGUNTAS
+       ============================================================ -->
+  <section class="white" data-transition="slide">
+    <div class="big-q" style="color:var(--p-purple);">
+      &iquest;Cu&aacute;ndo sientes que la IA<br>
+      <em>extiende</em> tu capacidad?
+    </div>
+    <div class="big-q" style="color:var(--p-orange); opacity:0.7;">
+      &iquest;Cu&aacute;ndo sientes que<br>
+      <em>decide por ti</em>?
+    </div>
+    <div class="bar bar-purple"></div>
+    <p style="opacity:0.5; font-size:1em;">Esa frontera es lo que vamos a mapear.</p>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 13 — PREPARACION
+       ============================================================ -->
+  <section class="light" data-transition="slide">
+    <p style="font-weight:700; font-size:0.9em; color:var(--p-green); letter-spacing:0.1em;">ANTES DEL TALLER</p>
+    <h2 style="font-size:3em; color:var(--p-dark);">Usa PICTOS.net<br>y trae tus casos.</h2>
+    <div class="bar bar-green"></div>
+    <div class="row">
+      <div>
+        <span class="col-label" style="color:var(--p-orange);">3&ndash;5 situaciones</span>
+        <span class="col-text">Donde creaste o adaptaste un pictograma.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-blue);">Contexto</span>
+        <span class="col-text">Qui&eacute;n lo usaba, qu&eacute; comunicaba, qu&eacute; sent&iacute;a.</span>
+      </div>
+      <div>
+        <span class="col-label" style="color:var(--p-purple);">Dificultades</span>
+        <span class="col-text">Qu&eacute; te cost&oacute;, qu&eacute; qued&oacute; pendiente.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SLIDE 14 — CTA FINAL
+       ============================================================ -->
+  <section class="dark" data-transition="zoom" style="text-align:center; align-items:center;">
+    <!-- Logo PICTOS grande centrado -->
+    <svg class="pictos-logo-big" viewBox="0 0 45.9 45.9" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:0.2em;">
+      <path d="m 23.09,5.42 c -9.4,0 -17.1,6.3 -17.1,14.1 0,7.8 0,0 0,0 v 0 17.7 c 0,2.1 1.7,3.9 3.9,3.9 h 1.6 c 2.1,0 3.9,-1.7 3.9,-3.9 v -5.3 c 2.3,1 4.9,1.5 7.7,1.5 9.4,0 17.1,-6.3 17.1,-14.1 0,-7.8 -7.7,-13.9 -17.1,-13.9 z m 0.3,20.5 c -6.4,0 -9.2,-6.4 -9.2,-6.4 0,0 2.8,-6.4 9.2,-6.4 6.4,0 9.2,6.4 9.2,6.4 0,0 -2.8,6.4 -9.2,6.4 z" fill="var(--p-orange)"/>
+      <path d="m 23.41,13.14 c -6.4,0 -9.2,6.4 -9.2,6.4 0,0 2.8,6.4 9.2,6.4 6.4,0 9.2,-6.4 9.2,-6.4 0,0 -2.8,-6.4 -9.2,-6.4 z" fill="rgba(255,255,255,0.15)"/>
+      <circle cx="23.39" cy="19.22" r="3.1" fill="#1a1033"/>
+    </svg>
+
+    <h1 style="text-align:center; font-size:3.8em;">
+      Participa.
+    </h1>
+    <p style="font-size:1.5em; font-weight:300; opacity:0.7; text-align:center; margin-bottom:0.8em;">
+      Tu experiencia construye la herramienta.
+    </p>
+    <a href="https://forms.gle/nJUGfNAsiHPzbdGq9" target="_blank" class="cta cta-orange">
+      Quiero participar
+    </a>
+    <p class="small" style="margin-top:2em;">
+      Vi&ntilde;a del Mar &middot; Santiago &middot; Online<br>
+      Mayo&ndash;Junio 2026 &middot; talleres.pictos.net
+    </p>
+  </section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  /*
+   * Inicializacion de Reveal.js para talleres PICTOS.net.
+   * hash: true permite navegar por URL a cada slide.
+   * center: false para que el flexbox de cada section controle la alineacion.
+   */
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280,
+    height: 720,
+    margin: 0,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: false,
+    controls: true,
+    progress: true,
+    history: true
+  });
+</script>
+</body>
+</html>
